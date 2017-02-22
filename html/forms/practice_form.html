@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice Form</title>
+</head>
+<body>
+  <form name="practice" action="success.html" method="post">
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email">
+    </div>
+
+    <div>
+      <label>Select a favorite color:</label>
+      <select name="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+
+    <div>
+        <label for="clr">Please explain why this is your favorite color:</label>
+        <textarea id="clr" name="color_reason"></textarea>
+    </div>
+
+    <div>    
+      <label>Choose the date when this became your favorite color:</label>
+      <input type="date" name="date">
+    </div>
+
+    <div>
+      <input type="checkbox" name="cb-newsletter" value="agree">
+      I would like to subscribe to a newsletter about my favorite color.
+    </div>
+
+    <button type="submit">Save your favorite color</button>
+  </form>
+</body>
+</html>
