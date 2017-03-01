@@ -13,3 +13,11 @@ section.job {
 ul.fancy-class {
   font-size: .8em;
 }
+
+section:hover {
+  background-color: pink;
+}
+
+section section:hover {
+  background-color: green;
+}
