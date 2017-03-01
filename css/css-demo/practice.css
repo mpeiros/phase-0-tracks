@@ -1,0 +1,15 @@
+#contact-info {
+  font-size: .8em;
+}
+
+section.job {
+  background-color: #e9e5dc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ul.fancy-class {
+  font-size: .8em;
+}
