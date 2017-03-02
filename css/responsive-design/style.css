@@ -1,3 +1,8 @@
+body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -30,3 +35,34 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+#external-links {
+  max-width: 20%;
+  min-width: 140px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+main {
+  max-width: 75%;
+  min-width: 500px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 674px) {
+  #external-links {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 150%;
+  }
+}
+
+/* Turns background hotpink when width < 500px
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
