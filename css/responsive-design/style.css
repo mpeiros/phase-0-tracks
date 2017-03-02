@@ -47,3 +47,21 @@ main {
   min-width: 500px;
   display: inline-block;
 }
+
+@media screen and (max-width: 674px) {
+  #external-links {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 150%;
+  }
+}
+
+/* Turns background hotpink when width < 500px
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
