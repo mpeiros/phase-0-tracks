@@ -1,5 +1,5 @@
 body {
-  width: 960px;
+  max-width: 960px;
 }
 
 blockquote {
@@ -36,12 +36,14 @@ figcaption {
 }
 
 #external-links {
-  width: 200px;
+  max-width: 20%;
+  min-width: 140px;
   display: inline-block;
   vertical-align: top;
 }
 
 main {
-  width: 756px;
+  max-width: 75%;
+  min-width: 500px;
   display: inline-block;
 }
