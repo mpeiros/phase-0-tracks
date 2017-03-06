@@ -1,0 +1,28 @@
+
+# Release 0 - Elevator Algorithm
+- Initiate elevator mode
+- Until elevator opens
+    + Wait patiently with your owner and make small talk
+    + When open, enter the elevator with your owner
+- Ask your owner which floor they want to go to
+    + Until you get a response that's between the bottom floor and the top floor
+        * Prompt your owner for a valid floor
+        * Wait 3 seconds for their response
+    + If no response
+        * Increase your volume and ask one more time before entering sleep mode
+    + If no valid response given after asking 5 times
+        * Tell your owner to stop messing with you and shut down for 2 minutes to annoy them
+- Begin button searching sequence starting at button #1 in the bottom left corner
+    + Repeat the following sequence until reaching button for your owner's desired floor
+        * Scan right until you reach the end of the row and then move up one row
+        * Scan left until you reach the end of the row and then move up one row
+    + When button is reached during the above scan, press the button
+- Press close door button until the door close
+- While elevator is moving towards the desired floor
+    + Play relaxing music and transform into chair for your owner to sit in
+- When elevator arrives at desired floor
+    + Turn off music
+    + If door is open, carry owner off the elevator
+        * Else press the open door button until door opens
+- Transform back into robot appearance
+- End elevator mode
