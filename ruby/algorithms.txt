@@ -26,3 +26,27 @@
         * Else press the open door button until door opens
 - Transform back into robot appearance
 - End elevator mode
+
+# Release 1 - Shower Algorithm
+- For each item of clothing you are currently wearing
+    + Remove item and place in laundry hamper
+- Grab towel and enter bathroom
+- Move knob upwards to get the shower running
+- Until desired water temperature is reached
+    + Place hand underneath water and feel temperature
+        * If too cold
+            - Turn knob left and check temperature with hand again
+        * If too hot
+            - Turn knob right and check temperature with hand again
+    + When desired temperature is reached, hang towel on towel rack and enter shower
+- Rinse off under the water for 1 minute
+- Lather hair with shampoo
+- Rinse shampoo out of hair
+- While still feeling dirty
+    + Scrub body with soap and rinse off 
+    + When no longer feeling dirty, move knob down to turn off shower
+- Exit the shower and grab towel off the towel rack
+- While not dry
+    + Dry off with the towel
+    + Exit the bathroom once dry
+- Return to room and put on clean clothes
