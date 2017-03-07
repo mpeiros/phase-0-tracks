@@ -1,3 +1,4 @@
+# Methods to check user input
 def check_if_integer
   begin
     num = Integer(gets.chomp)  
@@ -9,6 +10,20 @@ def check_if_integer
   num
 end
 
+def yes_or_no
+  loop do
+    case gets.chomp.downcase
+    when 'yes'
+      return 'yes'
+    when 'no'
+      return 'no'
+    else
+      puts "Error reading input - please enter 'yes' or 'no':"
+    end
+  end  
+end
+
+# Driver code
 puts 'How many employees will be processed?'
 employees = check_if_integer
 
@@ -25,10 +40,10 @@ for i in 1..employees
   year = check_if_integer
  
   puts 'Our company cafeteria serves garlic bread. Should we order some for you?'
-  garlic_bread = gets.chomp
+  garlic_bread = yes_or_no
 
   puts "Would you like to enroll in the company's health insurance?"
-  insurance = gets.chomp
+  insurance = yes_or_no
 
   result = 'Results inconclusive'
   allergy = ''
