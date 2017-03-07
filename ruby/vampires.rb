@@ -23,6 +23,18 @@ def yes_or_no
   end  
 end
 
+def check_if_blank
+  loop do
+    input = gets.chomp
+
+    if input == ''
+      puts 'Input blank - please try again:'
+    else
+      return input
+    end
+  end
+end
+
 # Driver code
 puts 'How many employees will be processed?'
 employees = check_if_integer
@@ -31,7 +43,7 @@ for i in 1..employees
   puts "Beginning survey for employee number #{i}"
 
   puts 'What is your name'
-  name = gets.chomp
+  name = check_if_blank
 
   puts 'How old are you?'
   age = check_if_integer
@@ -51,7 +63,7 @@ for i in 1..employees
 
   until allergy == 'done'
     puts "Enter an allergy or 'done' if no more allergies:"
-    allergy = gets.chomp
+    allergy = check_if_blank
 
     if allergy == 'sunshine'
       result = 'Probably a vampire'
