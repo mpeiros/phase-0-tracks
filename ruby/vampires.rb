@@ -1,5 +1,10 @@
 puts 'How many employees will be processed?'
-employees = gets.chomp.to_i
+begin
+  employees = Integer(gets.chomp)
+rescue 
+  puts 'Error reading input - please enter an integer number:'
+  retry
+end
 
 for i in 1..employees
   puts "Beginning survey for employee number #{i}"
@@ -8,11 +13,21 @@ for i in 1..employees
   name = gets.chomp
 
   puts 'How old are you?'
-  age = gets.chomp.to_i
+  begin
+    age = Integer(gets.chomp)
+  rescue
+    puts 'Error reading input - please enter an integer number:'
+    retry
+  end
 
   puts 'What year were you born?'
-  year = gets.chomp.to_i
-
+  begin
+    year = Integer(gets.chomp)
+  rescue
+    puts 'Error reading input - please enter an integer number:'
+    retry
+  end
+ 
   puts 'Our company cafeteria serves garlic bread. Should we order some for you?'
   garlic_bread = gets.chomp
 
