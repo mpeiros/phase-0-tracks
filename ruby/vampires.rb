@@ -20,21 +20,36 @@ for i in 1..employees
   insurance = gets.chomp
 
   result = 'Results inconclusive'
+  allergy = ''
+  sunshine_allergy = false
 
-  if (age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'yes' || insurance == 'yes')
-    result = 'Probably not a vampire'
+  until allergy == 'done'
+    puts "Enter an allergy or 'done' if no more allergies:"
+    allergy = gets.chomp
+
+    if allergy == 'sunshine'
+      result = 'Probably a vampire'
+      sunshine_allergy = true
+      break
+    end
   end
 
-  if !(age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'no' || insurance == 'no')
-    result = 'Probably a vampire'
-  end
+  if !sunshine_allergy
+    if (age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'yes' || insurance == 'yes')
+      result = 'Probably not a vampire'
+    end
 
-  if !(age == 2017 - year || age == 2017 - year - 1) && garlic_bread == 'no' && insurance == 'no'
-    result = 'Almost certainly a vampire'
-  end
+    if !(age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'no' || insurance == 'no')
+      result = 'Probably a vampire'
+    end
 
-  if name == 'Drake Cula' || name == 'Tu Fang'
-    result = 'Definitely a vampire'
+    if !(age == 2017 - year || age == 2017 - year - 1) && garlic_bread == 'no' && insurance == 'no'
+      result = 'Almost certainly a vampire'
+    end
+
+    if name == 'Drake Cula' || name == 'Tu Fang'
+      result = 'Definitely a vampire'
+    end
   end
 
   puts result
