@@ -46,7 +46,24 @@ def decrypt(word)
   word
 end
 
-puts encrypt("abc")
-puts encrypt("zed") 
-puts decrypt("bcd")
-puts decrypt("afe")
+# puts encrypt("abc")
+# puts encrypt("zed") 
+# puts decrypt("bcd")
+# puts decrypt("afe")
+# puts decrypt(encrypt("swordfish"))
+
+# Ask whether to encrypt or decrypt and assign value with gets.chomp and check user choice
+# Ask user for password and assign value with gets.chomp
+# if statement to check response and call encrypt or decrypt method based on user response
+
+puts "Would you like to encrypt or decrypt a password (please enter 'e' for encrypt or 'd' for decrypt)?"
+choice = gets.chomp
+
+puts 'Enter your password:'
+password = gets.chomp
+
+if choice == 'e'
+  puts "Your encrypted password: #{encrypt(password)}"
+else
+  puts "Your decrypted password: #{decrypt(password)}"
+end
