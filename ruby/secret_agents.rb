@@ -16,6 +16,8 @@ def encrypt(word)
     else
       word[i] = word[i].next!
     end
+
+    i += 1
   end
 
   word
@@ -26,19 +28,25 @@ end
 # iterate through encrypted word by letter with a while loop
 # change index of encrypted letter by -1 and change to corresponding letter index in alphabet string
 
-alphabet = '"abcdefghijklmnopqrstuvwxyz"'
-
 def decrypt(word)
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
   i = 0
+
   while i < word.length
-    if word[i] == 'a'
-      word[i] = 'z'
-    elsif word[i] == ' '
+    if word[i] == ' '
       word[i] = ' '
     else
-      word[i] = alphabet[i - 1]
+      index = alphabet.index(word[i])
+      word[i] = alphabet[index - 1]
     end
+
+    i += 1
   end
 
   word
 end
+
+puts encrypt("abc")
+puts encrypt("zed") 
+puts decrypt("bcd")
+puts decrypt("afe")
