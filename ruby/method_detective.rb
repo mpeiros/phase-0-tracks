@@ -33,10 +33,14 @@ puts " suspects".replace("the usual suspects")
 
 puts "The case of the disappearing last letter".chop
 puts "The case of the disappearing last letter".chomp("r")
+puts "The case of the disappearing last letter".byteslice(0, 39)
+puts "The case of the disappearing last letter".slice(0...39)
 puts "The case of the disappearing last letter".replace("The case of the disappearing last lette")
 # => "The case of the disappearing last lette"
 
 puts "The mystery of the missing first letter".delete("T")
+puts "The mystery of the missing first letter".byteslice(1, 38)
+puts "The mystery of the missing first letter".slice(1..38)
 puts "The mystery of the missing first letter".replace("he mystery of the missing first letter")
 # => "he mystery of the missing first letter"
 
@@ -45,6 +49,7 @@ puts "Elementary,    my   dear        Watson!".replace("Elementary, my dear Wats
 # => "Elementary, my dear Watson!"
 
 puts "z".ord
+puts "z".codepoints
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 
