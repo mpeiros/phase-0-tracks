@@ -6,6 +6,12 @@
 #   Prompt user for new value and update the hash with the new value
 # Print out the new version of the hash for the user
 
+# Helper method to convert string to boolean
+def to_bool(str)
+  str.downcase == "yes" ? true : false
+end
+
+# Driver code
 print "Enter the client's name: "
 name = gets.chomp
 
@@ -22,11 +28,7 @@ print "Enter the client's favorite color: "
 fav_color = gets.chomp
 
 print "Can the client afford an interior designer? "
-if gets.chomp.downcase == "yes"
-  afford = true
-else
-  afford = false
-end
+afford = to_bool(gets.chomp)
 
 client = {
   name: name,
