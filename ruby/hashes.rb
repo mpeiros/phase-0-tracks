@@ -11,6 +11,13 @@ def to_bool(str)
   str.downcase == "yes" ? true : false
 end
 
+# Helper method to make hash easier to read when printed
+def print_hash(client_hash)
+  client_hash.each do |key, value|
+    puts "#{key}: #{value}"
+  end
+end
+
 # Driver code
 print "Enter the client's name: "
 name = gets.chomp
@@ -39,7 +46,8 @@ client = {
   afford: afford
 }
 
-puts client
+puts "Here is the client information you entered:"
+print_hash(client)
 
 print "Want to update a field? Enter its name here (or 'none' to skip): "
 update = gets.chomp.downcase
@@ -54,8 +62,9 @@ if update != "none"
   else
     new_value = gets.chomp
   end
-  
+
   client[update.to_sym] = new_value
 end
 
-puts client
+puts "Here is the updated client information:"
+print_hash(client)
