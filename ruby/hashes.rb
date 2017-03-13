@@ -42,11 +42,19 @@ client = {
 puts client
 
 print "Want to update a field? Enter its name here (or 'none' to skip): "
-update = gets.chomp
+update = gets.chomp.downcase
 
-if update.downcase != "none"
+if update != "none"
   print "Enter the new value for #{update}: "
-  new_value = gets.chomp
+
+  if update == "age" || update == "num_kids"
+    new_value = gets.chomp.to_i
+  elsif update == "afford"
+    new_value = to_bool(gets.chomp)
+  else
+    new_value = gets.chomp
+  end
+  
   client[update.to_sym] = new_value
 end
 
