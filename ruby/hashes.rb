@@ -38,3 +38,14 @@ client = {
 }
 
 puts client
+
+print "Want to update a field? Enter its name here (or 'none' to skip): "
+update = gets.chomp
+
+if update.downcase != "none"
+  print "Enter the new value for #{update}: "
+  new_value = gets.chomp
+  client[update.to_sym] = new_value
+end
+
+puts client
