@@ -54,9 +54,14 @@ end
 # User interface code
 puts 'Welcome to the alias creator!'
 
+spy_names_and_aliases = {}
+
 loop do
   print "Enter your name here (or enter 'q' to quit): "
   name = gets.chomp
   break if name == 'q'
   puts "#{create_alias(name)} is actually #{name}"
+  spy_names_and_aliases[name] = create_alias(name)
 end
+
+spy_names_and_aliases.each { |spy_name, spy_alias| puts "#{spy_alias} is actually #{spy_name}" }
