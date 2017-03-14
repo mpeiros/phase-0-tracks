@@ -4,7 +4,10 @@
 # Loop through this new string and check if the character is a vowel
 # If vowel - use index to change the char to next vowel in the string 'aeioua' ('a' on the end will handle 'u' edge case)
 # Else - use index to change the char to next consonant in the string 'bcdfghjklmnpqrstvwxyzb' ('b on the end will handle 'z' edge case)
-# Format the spy's alias using capitalize and then print it out
+# Format the spy's alias using capitalize
+# Prompt user to enter a name (break loop if user enters sentinel value)
+# Grab user input, pass it into method to create alias, print the result, and store result in a hash
+# When user enters sentinel value - iterate through the hash and print out a summary of the names and aliases
 
 # Methods to create the alias
 def swap_names(spy_name)
@@ -64,4 +67,5 @@ loop do
   spy_names_and_aliases[name] = create_alias(name)
 end
 
+puts 'Here is a summary of all the names that you entered:'
 spy_names_and_aliases.each { |spy_name, spy_alias| puts "#{spy_alias} is actually #{spy_name}" }
