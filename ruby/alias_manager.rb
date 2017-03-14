@@ -6,8 +6,8 @@
 # Else - use index to change the char to next consonant in the string 'bcdfghjklmnpqrstvwxyzb' ('b on the end will handle 'z' edge case)
 # Print out the spy's alias
 
-def swap_names(full_name)
-  name_array = full_name.split
+def swap_names(spy_name)
+  name_array = spy_name.split
   name_array.reverse!
   name_array.join(' ')
 end
@@ -24,8 +24,27 @@ def next_consonant(char)
   char = consonants[index + 1]
 end
 
-puts swap_names('Felicia Torres')
-puts next_vowel('a')
-puts next_vowel('u')
-puts next_consonant('b')
-puts next_consonant('z')
+def format_name(spy_name)
+  name_array = spy_name.split
+  name_array.map! { |name| name.capitalize! }
+  name_array.join(' ')
+end
+
+def create_alias(spy_name)
+  swapped_names = swap_names(spy_name).downcase
+  spy_alias = ''
+
+  swapped_names.each_char do |char|
+    if char == ' '
+      spy_alias += ' '
+    elsif char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'
+      spy_alias += next_vowel(char)
+    else
+      spy_alias += next_consonant(char)
+    end
+  end
+
+  format_name(spy_alias)
+end
+
+puts create_alias('Felicia Torres')
