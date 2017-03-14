@@ -4,8 +4,9 @@
 # Loop through this new string and check if the character is a vowel
 # If vowel - use index to change the char to next vowel in the string 'aeioua' ('a' on the end will handle 'u' edge case)
 # Else - use index to change the char to next consonant in the string 'bcdfghjklmnpqrstvwxyzb' ('b on the end will handle 'z' edge case)
-# Print out the spy's alias
+# Format the spy's alias using capitalize and then print it out
 
+# Methods to create the alias
 def swap_names(spy_name)
   name_array = spy_name.split
   name_array.reverse!
@@ -50,4 +51,12 @@ def create_alias(spy_name)
   format_name(spy_alias)
 end
 
-puts create_alias('Felicia Torres')
+# User interface code
+puts 'Welcome to the alias creator!'
+
+loop do
+  print "Enter your name here (or enter 'q' to quit): "
+  name = gets.chomp
+  break if name == 'q'
+  puts "#{create_alias(name)} is actually #{name}"
+end
