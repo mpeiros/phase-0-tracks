@@ -12,4 +12,20 @@ def swap_names(full_name)
   name_array.join(' ')
 end
 
+def next_vowel(char)
+  vowels = 'aeioua'
+  index = vowels.index(char)
+  char = vowels[index + 1]
+end
+
+def next_consonant(char)
+  consonants = 'bcdfghjklmnpqrstvwxyzb'
+  index = consonants.index(char)
+  char = consonants[index + 1]
+end
+
 puts swap_names('Felicia Torres')
+puts next_vowel('a')
+puts next_vowel('u')
+puts next_consonant('b')
+puts next_consonant('z')
