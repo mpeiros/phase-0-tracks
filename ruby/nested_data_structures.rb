@@ -78,4 +78,17 @@ apartment_building = {
   }
 }
 
-puts apartment_building
+# Access the dog's name in apartment 1
+p apartment_building[:unit_one][:pets][:dogs][0] # => 'Rover'
+
+# Access list of tenants in apartment 3
+p apartment_building[:unit_three][:tenants] # => ['Susan', 'Catherine']
+
+# Access the second tenant in apartment 3
+p apartment_building[:unit_three][:tenants][1] # => 'Catherine'
+
+# Access number of bedrooms in apartment 2
+p apartment_building[:unit_two][:unit_info][:bedrooms] # => 3
+
+# Access the second cat's name in apartment 4
+p apartment_building[:unit_four][:pets][:cats][1] # => 'Scratchy'
