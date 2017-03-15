@@ -9,6 +9,10 @@
 # Grab user input, pass it into method to create alias, print the result, and store result in a hash
 # When user enters sentinel value - iterate through the hash and print out a summary of the names and aliases
 
+# Constants
+VOWELS = 'aeioua'
+CONSONANTS = 'bcdfghjklmnpqrstvwxyzb'
+
 # Methods to create the alias
 def swap_names(spy_name)
   name_array = spy_name.split
@@ -16,16 +20,9 @@ def swap_names(spy_name)
   name_array.join(' ')
 end
 
-def next_vowel(char)
-  vowels = 'aeioua'
-  index = vowels.index(char)
-  char = vowels[index + 1]
-end
-
-def next_consonant(char)
-  consonants = 'bcdfghjklmnpqrstvwxyzb'
-  index = consonants.index(char)
-  char = consonants[index + 1]
+def next_letter(char, letters)
+  index = letters.index(char)
+  char = letters[index + 1]
 end
 
 def format_name(spy_name)
@@ -39,10 +36,10 @@ def replace_chars(spy_name)
   spy_name.each_char do |char|
     if char == ' '
       spy_alias += ' '
-    elsif char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'
-      spy_alias += next_vowel(char)
+    elsif VOWELS.include?(char)
+      spy_alias += next_letter(char, VOWELS)
     else
-      spy_alias += next_consonant(char)
+      spy_alias += next_letter(char, CONSONANTS)
     end
   end
   spy_alias
