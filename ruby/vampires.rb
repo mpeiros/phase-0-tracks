@@ -14,9 +14,9 @@ def yes_or_no
   loop do
     case gets.chomp.downcase
     when 'yes'
-      return 'yes'
+      return true
     when 'no'
-      return 'no'
+      return false
     else
       puts "Error reading input - please enter 'yes' or 'no':"
     end
@@ -49,7 +49,7 @@ for i in 1..employees
   age = check_if_integer
 
   puts 'What year were you born?'
-  year = check_if_integer
+  birth_year = check_if_integer
  
   puts 'Our company cafeteria serves garlic bread. Should we order some for you?'
   garlic_bread = yes_or_no
@@ -72,21 +72,27 @@ for i in 1..employees
     end
   end
 
+  current_year = Time.now.year
+  correct_age = false
+  if (age == current_year - birth_year || age == current_year - birth_year - 1)
+    correct_age = true
+  end
+
   if !sunshine_allergy
-    if (age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'yes' || insurance == 'yes')
-      result = 'Probably not a vampire'
-    end
-
-    if !(age == 2017 - year || age == 2017 - year - 1) && (garlic_bread == 'no' || insurance == 'no')
-      result = 'Probably a vampire'
-    end
-
-    if !(age == 2017 - year || age == 2017 - year - 1) && garlic_bread == 'no' && insurance == 'no'
-      result = 'Almost certainly a vampire'
-    end
-
     if name == 'Drake Cula' || name == 'Tu Fang'
       result = 'Definitely a vampire'
+    else
+      if correct_age && (garlic_bread || insurance)
+        result = 'Probably not a vampire'
+      end
+
+      if !correct_age && (!garlic_bread || !insurance)
+        result = 'Probably a vampire'
+      end
+
+      if !correct_age && !garlic_bread && !insurance
+        result = 'Almost certainly a vampire'
+      end
     end
   end
 
