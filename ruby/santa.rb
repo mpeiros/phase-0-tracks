@@ -7,7 +7,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0  
+    @age = Random.rand(0..140)  
   end
   
   def speak
@@ -32,13 +32,26 @@ class Santa
     end
   end
 
-  # For testing
+  # For release 1, 2, and 3 tests
   def about
     puts "I am a #{@gender} #{@ethnicity} Santa!"
   end
 end
 
-#Driver Code
+# Driver Code for Release 4
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+100.times do |santa_number|
+  puts "Santa number #{santa_number + 1}"
+  gender = genders.sample
+  ethnicity = ethnicities.sample
+  santa = Santa.new(gender, ethnicity)
+  puts "Gender: #{santa.gender}"
+  puts "Ethnicity: #{santa.ethnicity}"
+  puts "Age: #{santa.age}"
+  puts '-' * 40
+end
 
 # Initializations for release 1
 # puts 'Making some santas'
@@ -72,20 +85,17 @@ end
 # puts '-' * 40
 
 # Test code for release 2 and 3
-santa_claus = Santa.new('male', 'black')
-santa_claus.about
-puts santa_claus.age
-puts santa_claus.ethnicity
-santa_claus.celebrate_birthday
-santa_claus.celebrate_birthday
-puts santa_claus.age
-santa_claus.get_mad_at('Vixen')
-santa_claus.get_mad_at('Vix')
-santa_claus.get_mad_at('Rudolph')
-santa_claus.gender = 'female'
-santa_claus.about
-santa_claus.gender = 'unicorn'
-santa_claus.about
-
-
-
+# santa_claus = Santa.new('male', 'black')
+# santa_claus.about
+# puts santa_claus.age
+# puts santa_claus.ethnicity
+# santa_claus.celebrate_birthday
+# santa_claus.celebrate_birthday
+# puts santa_claus.age
+# santa_claus.get_mad_at('Vixen')
+# santa_claus.get_mad_at('Vix')
+# santa_claus.get_mad_at('Rudolph')
+# santa_claus.gender = 'female'
+# santa_claus.about
+# santa_claus.gender = 'unicorn'
+# santa_claus.about
