@@ -1,4 +1,7 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
+
   def initialize(gender, ethnicity)
     puts 'Initializing Santa instance...'
     @gender = gender
@@ -15,10 +18,6 @@ class Santa
     puts "That was a good #{cookie_type}!"
   end
 
-  def about
-    puts "I am a #{@gender} #{@ethnicity} Santa!"
-  end
-
   def celebrate_birthday
     @age += 1
   end
@@ -27,24 +26,15 @@ class Santa
     if @reindeer_ranking.include?(reindeer_name)
       @reindeer_ranking.delete(reindeer_name)
       @reindeer_ranking.push(reindeer_name)
-      p @reindeer_ranking
+      p @reindeer_ranking # for testing purposes
     else
       puts 'No reindeer by that name'
     end
   end
 
-  # Getter methods
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
-  # Setter methods
-  def gender=(new_gender)
-    @gender = new_gender
+  # For testing
+  def about
+    puts "I am a #{@gender} #{@ethnicity} Santa!"
   end
 end
 
@@ -81,7 +71,7 @@ end
 # more_santas.each { |santa| santa.about }
 # puts '-' * 40
 
-# Test code for relase 2
+# Test code for release 2 and 3
 santa_claus = Santa.new('male', 'black')
 santa_claus.about
 puts santa_claus.age
@@ -91,7 +81,10 @@ santa_claus.celebrate_birthday
 puts santa_claus.age
 santa_claus.get_mad_at('Vixen')
 santa_claus.get_mad_at('Vix')
+santa_claus.get_mad_at('Rudolph')
 santa_claus.gender = 'female'
+santa_claus.about
+santa_claus.gender = 'unicorn'
 santa_claus.about
 
 
