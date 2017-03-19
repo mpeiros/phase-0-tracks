@@ -31,3 +31,28 @@ puppy.speak(5)
 puppy.roll_over
 puts puppy.dog_years(8)
 puppy.ignore_owner('sit')
+
+class Kitten
+  def initialize
+    puts 'Initializing new kitten instance...'
+  end
+
+  def scratch
+    puts 'Kitten scratched your face.'
+  end
+
+  def meow(number)
+    number.times { puts 'Meow!' }
+  end
+end
+
+kittens = []
+
+50.times do
+  kittens << Kitten.new
+end
+
+kittens.each do | kitten |
+  kitten.scratch
+  kitten.meow(Random.rand(1..5))
+end
