@@ -5,7 +5,6 @@ def print_list(list)
   # steps:
   # iterate through the list and print out items and quantities
   list.each { |item, quantity| puts "#{item}: #{quantity}" }
-  # item: quantity
   # output: printed list in a nice format
 end
 
@@ -16,58 +15,53 @@ def create_list(str)
   # steps:
   # split input into array
   str_array = str.split
-  # iterate array and add each item to hash
-  str_array.each { |item| grocery_list[item] = 1 }
+
+  # iterate through array and add each item to hash
   # set default quantity
-  # print the list using print method and passing in hash
-  # print_list(grocery_list)
+  str_array.each { |item| grocery_list[item] = 1 }
+ 
   # output: return the created hash
   grocery_list
 end
 
-# puts create_list("apples pears cherries")
-
 # Method to add an item to a list
-def add_item(list, item_name, quantity=1)
-  # input: list, item name, and optional quantity
+# input: list, item name, and optional quantity
+def add_item(list, item_name, quantity = 1)
   # steps:
   # check IF item is included in list
+    # increment item by quantity
+    # ELSE - set item as new key and assign it to quantity as value
   list.include?(item_name) ? list[item_name] += quantity : list[item_name] = quantity
 
   # output: return the updated hash
-  # puts "Here is your updated list:"
   list
 end
 
-# test_list = create_list("apples pears cherries")
-# add_item(test_list, "peaches", 3)
-# test_list
-
 # Method to remove an item from the list
+# input: list, item name
 def remove_item(list, item_name)
-  # input: list, item name
   # steps:
   # check IF item is included in list
+    # delete the item
+    # ELSE, print a message to the user
   list.include?(item_name) ? list.delete(item_name) : puts("No #{item_name} on the list.")
   
   # output: return updated hash or the original hash
   list
 end
 
-# puts remove_item(test_list, "cars")
-
 # Method to update the quantity of an item
+# input: list, item name, new quantity
 def update_quantity(list, item_name, quantity)
-  # input: list, item name, new quantity
   # steps:
   # check IF item is included in list
+    # update the item’s quantity
+    # ELSE, print a message to the user
   list.include?(item_name) ? list[item_name] = quantity : puts("No #{item_name} on the list.")
 
   # output: return the updated hash or the original hash
   list
 end
-
-# puts update_quantity(test_list, "cars", 4)
 
 # Test code for release 2
 grocery_list = create_list("")
@@ -82,3 +76,5 @@ print_list(grocery_list)
 puts '-' * 40
 update_quantity(grocery_list, "ice cream", 1)
 print_list(grocery_list)
+
+
