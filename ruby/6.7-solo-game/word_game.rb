@@ -53,5 +53,12 @@ class WordGame
     end
   end
 
+  def game_is_over?
+    if @game_over || @max_wrong_guesses == 0
+      true
+    else
+      false
+    end
+  end
 end
 

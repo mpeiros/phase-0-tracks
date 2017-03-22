@@ -75,4 +75,20 @@ describe WordGame do
       expect(word_game.guessed_word).to eq 's----s'
     end
   end
+
+  describe '#game_is_over?' do
+    it 'returns true if @game_over is set to true' do
+      word_game.instance_variable_set(:@game_over, true)
+      expect(word_game.game_is_over?).to eq true
+    end
+
+    it 'returns true if maximum wrong guess count reaches 0' do
+      word_game.instance_variable_set(:@max_wrong_guesses, 0)
+      expect(word_game.game_is_over?).to eq true
+    end
+
+    it 'returns true when game is supposed to continue' do
+      expect(word_game.game_is_over?).to eq false
+    end
+  end
 end
