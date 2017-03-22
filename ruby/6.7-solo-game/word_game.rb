@@ -8,7 +8,7 @@
 #   + break process if letter has already been guessed
 #   + check if letter is included in the word
 #     * if yes - add letter to string representing the state of the word
-#     * if no - increment the wrong guess counter
+#     * if no - decrement the max wrong guess count
 # - Allow read access to string representing the state of the word to guess and boolean representing state of the game
 # - Determine game over message to send to user
 #   + if user has won - send congratulatory message including how many wrong guesses they used up
@@ -27,4 +27,29 @@ class WordGame
     @guessed_word = '-' * word.length
     @game_over = false
   end
+
+  def guess_letter(letter)
+    return false if @guessed_letters.include?(letter)
+    
+    if @word.include?(letter) 
+      replace_letters(letter)
+      @guessed_letters << letter
+    else
+      @max_wrong_guesses -= 1
+    end
+
+    true
+  end
+
+  def replace_letters(letter)
+    i = 0
+    while i < @word.length
+      if @word[i] == letter
+        @guessed_word[i] = letter
+      end
+      i += 1
+    end
+  end
+
 end
+

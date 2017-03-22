@@ -24,4 +24,55 @@ describe WordGame do
       expect(word_game.game_over).to eq false
     end
   end
+
+  describe '#guess_letter' do
+    context 'guessing a correct letter' do
+      it 'returns true' do
+        expect(word_game.guess_letter('o')).to eq true
+      end
+
+      it 'correctly modifies @guessed_word' do
+        word_game.guess_letter('s')
+        expect(word_game.guessed_word).to eq 's----s'
+      end
+
+      it 'adds letter to the array of guessed letters' do
+        word_game.guess_letter('s')
+        word_game.guess_letter('l')
+        word_game.guess_letter('t')
+        expect(word_game.instance_variable_get(:@guessed_letters)).to eq ['s', 'l', 't']
+      end
+    end
+
+    context 'guessing an incorrect letter' do
+      it 'returns true' do
+        expect(word_game.guess_letter('a')).to eq true
+      end
+
+      it 'decrements the maximum wrong guess count' do
+        word_game.guess_letter('z')
+        word_game.guess_letter('x')
+        expect(word_game.instance_variable_get(:@max_wrong_guesses)).to eq 1
+      end
+    end
+
+    context 'guessing a letter already in the guessed letters array' do
+      it 'returns false' do
+        word_game.guess_letter('h')
+        expect(word_game.guess_letter('h')).to eq false
+      end
+    end
+  end
+
+  describe '#replace_letters' do
+    it 'correctly handles a letter that occurs once' do
+      word_game.replace_letters('t')
+      expect(word_game.guessed_word).to eq '---t--'
+    end
+
+    it 'correctly handles a letter that occurs more than once' do
+      word_game.replace_letters('s')
+      expect(word_game.guessed_word).to eq 's----s'
+    end
+  end
 end
