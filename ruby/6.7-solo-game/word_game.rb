@@ -58,6 +58,10 @@ class WordGame
     end
   end
 
+  def handle_spaces
+    @word.include?(' ') ? replace_letters(' ') : false
+  end
+
   def check_for_win
     @word == @guessed_word ? @game_over = true : false
   end

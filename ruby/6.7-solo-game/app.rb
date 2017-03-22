@@ -7,6 +7,7 @@ print 'Please enter a word for your opponent to guess: '
 user_word = gets.chomp.downcase
 
 game = WordGame.new(user_word)
+game.handle_spaces
 
 until game.game_is_over?
   puts '_' * 50

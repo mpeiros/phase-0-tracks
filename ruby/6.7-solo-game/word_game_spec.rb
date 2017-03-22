@@ -97,6 +97,18 @@ describe WordGame do
     end
   end
 
+  describe '#handle_spaces' do
+    it 'correctly handles user input containing spaces' do
+      word_game_spaces = WordGame.new('three toed sloths')
+      word_game_spaces.handle_spaces
+      expect(word_game_spaces.guessed_word).to eq '----- ---- ------'
+    end
+
+    it 'returns false if user input does not include spaces' do
+      expect(word_game.handle_spaces).to eq false
+    end
+  end
+
   describe '#check_for_win' do
     it 'returns true if user has won' do
       word_game.instance_variable_set(:@guessed_word, 'sloths')
