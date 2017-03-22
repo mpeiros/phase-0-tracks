@@ -82,6 +82,12 @@ describe WordGame do
         word_game.guess_letter('h')
         expect(word_game.guess_letter('h')).to eq false
       end
+
+      it 'does not affect the wrong guess count' do
+        word_game.guess_letter('d')
+        word_game.guess_letter('d')
+        expect(word_game.max_wrong_guesses).to eq 2
+      end
     end
   end
 
