@@ -3,8 +3,15 @@ require_relative 'word_game'
 # user interface
 
 puts 'Welcome to the Word Guessing Game!'
-print 'Please enter a word for your opponent to guess: '
-user_word = gets.chomp.downcase
+
+user_word = ''
+
+loop do
+  print 'Please enter a word for your opponent to guess: '
+  user_word = gets.chomp.downcase
+  break if user_word.length > 1
+  puts 'A word must be longer than 1 character. Try again.'
+end
 
 game = WordGame.new(user_word)
 game.handle_spaces
@@ -31,7 +38,7 @@ until game.game_is_over?
 end
 
 if user_win
-  puts "Congrats! You guessed the word #{game.word} with #{game.max_wrong_guesses} wrong guesses remaining."
+  puts "\nCongrats! You guessed the word '#{game.word}' with #{game.max_wrong_guesses} wrong guesses remaining."
 else
-  puts "You suck! You were unable to guess the word #{game.word}."
+  puts "\nYou suck! You were unable to guess the word '#{game.word}'."
 end
