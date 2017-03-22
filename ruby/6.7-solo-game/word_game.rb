@@ -4,6 +4,7 @@
 #   + initialize each game with empty array of guessed letters
 #   + initialize each game with a string representing the state of the word to guess (e.g., would be initialized as '---' for a word that's 3 letters long)
 #   + initialize each game with boolean representing the state of the game (i.e., is the game over or not)
+#   + initialize each game with boolean representing if a letter guess was correct or not
 # - Process letter guesses when entered
 #   + break process if letter has already been guessed
 #   + check if letter is included in the word
@@ -13,6 +14,7 @@
 #   + word to guess 
 #   + string representing the state of the word to guess
 #   + maximum wrong guess count
+#   + boolean representing if a letter guess was correct or not
 # - Determine game over message to send to user
 #   + if user has won - send congratulatory message including how many wrong guesses they used up
 #   + if user has lost - send taunting message revealing the word that they were unable to guess 
@@ -20,7 +22,7 @@
 # game class
 
 class WordGame
-  attr_reader :word, :guessed_word, :max_wrong_guesses
+  attr_reader :word, :guessed_word, :max_wrong_guesses, :correct_guess
 
   def initialize(word)
     @word = word
@@ -28,6 +30,7 @@ class WordGame
     @guessed_letters = []
     @guessed_word = '-' * word.length
     @game_over = false
+    @correct_guess = false
   end
 
   def guess_letter(letter)
@@ -35,8 +38,10 @@ class WordGame
     
     if @word.include?(letter) 
       replace_letters(letter)
+      @correct_guess = true
     else
       @max_wrong_guesses -= 1
+      @correct_guess = false
     end
 
     @guessed_letters << letter

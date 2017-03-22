@@ -23,6 +23,10 @@ describe WordGame do
     it 'correctly initializes @game_over' do
       expect(word_game.instance_variable_get(:@game_over)).to eq false
     end
+
+    it 'correctly initializes @correct_guess' do
+      expect(word_game.correct_guess).to eq false
+    end
   end
 
   describe '#guess_letter' do
@@ -34,6 +38,11 @@ describe WordGame do
       it 'correctly modifies @guessed_word' do
         word_game.guess_letter('s')
         expect(word_game.guessed_word).to eq 's----s'
+      end
+
+      it 'sets @correct_guess to true' do
+        word_game.guess_letter('h')
+        expect(word_game.correct_guess).to eq true
       end
 
       it 'adds letter to the array of guessed letters' do
@@ -53,6 +62,11 @@ describe WordGame do
         word_game.guess_letter('z')
         word_game.guess_letter('x')
         expect(word_game.max_wrong_guesses).to eq 1
+      end
+
+      it 'sets @correct_guess to false' do
+        word_game.guess_letter('y')
+        expect(word_game.correct_guess).to eq false
       end
 
       it 'adds letter to the array of guessed letters' do

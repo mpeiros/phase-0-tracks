@@ -14,9 +14,18 @@ until game.game_is_over?
   puts game.guessed_word
 
   print 'Please enter a letter to guess: '
-  user_guess = gets.chomp.downcase
+  user_guess = gets.chomp.downcase[0] # only get first char to handle incorrect user input
 
-  puts "You have already guessed the letter #{user_guess}." unless game.guess_letter(user_guess)
+  unless game.guess_letter(user_guess)
+    puts "You have already guessed the letter #{user_guess}."
+  else
+    if game.correct_guess
+      puts "Nice guess! All #{user_guess}'s have been revealed."
+    else
+      puts "Bad guess! No #{user_guess}'s in this word."
+    end
+  end
+
   user_win = game.check_for_win
 end
 
