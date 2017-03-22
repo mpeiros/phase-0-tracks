@@ -53,6 +53,10 @@ class WordGame
     end
   end
 
+  def check_for_win
+    @word == @guessed_word ? @game_over = true : false
+  end
+
   def game_is_over?
     if @game_over || @max_wrong_guesses == 0
       true

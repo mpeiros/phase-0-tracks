@@ -76,6 +76,23 @@ describe WordGame do
     end
   end
 
+  describe '#check_for_win' do
+    it 'returns true if user has won' do
+      word_game.instance_variable_set(:@guessed_word, 'sloths')
+      expect(word_game.check_for_win).to eq true
+    end
+
+    it 'sets @game_over to true if user has won' do
+      word_game.instance_variable_set(:@guessed_word, 'sloths')
+      word_game.check_for_win
+      expect(word_game.game_over).to eq true
+    end
+
+    it 'returns false if user has not won yet' do
+      expect(word_game.check_for_win).to eq false
+    end
+  end
+
   describe '#game_is_over?' do
     it 'returns true if @game_over is set to true' do
       word_game.instance_variable_set(:@game_over, true)
