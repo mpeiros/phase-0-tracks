@@ -10,8 +10,8 @@
         * if yes - add letter to string representing the state of the word
         * if no - decrement the max wrong guess count
 - Allow read access
+    + word to guess 
     + string representing the state of the word to guess
-    + boolean representing state of the game
     + maximum wrong guess count
 - Determine game over message to send to user
     + if user has won - send congratulatory message including how many wrong guesses they used up

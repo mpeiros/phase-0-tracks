@@ -10,8 +10,8 @@
 #     * if yes - add letter to string representing the state of the word
 #     * if no - decrement the max wrong guess count
 # - Allow read access
+#   + word to guess 
 #   + string representing the state of the word to guess
-#   + boolean representing state of the game
 #   + maximum wrong guess count
 # - Determine game over message to send to user
 #   + if user has won - send congratulatory message including how many wrong guesses they used up
@@ -20,7 +20,7 @@
 # game class
 
 class WordGame
-  attr_reader :guessed_word, :game_over, :max_wrong_guesses
+  attr_reader :word, :guessed_word, :max_wrong_guesses
 
   def initialize(word)
     @word = word
@@ -35,11 +35,11 @@ class WordGame
     
     if @word.include?(letter) 
       replace_letters(letter)
-      @guessed_letters << letter
     else
       @max_wrong_guesses -= 1
     end
 
+    @guessed_letters << letter
     true
   end
 
@@ -66,3 +66,23 @@ class WordGame
   end
 end
 
+# user interface
+
+puts 'Welcome to the Word Guessing Game!'
+print 'Please enter a word for your opponent to guess: '
+user_word = gets.chomp.downcase
+
+game = WordGame.new(user_word)
+
+until game.game_is_over?
+  puts "The status of the word you must guess is listed below. You have #{game.max_wrong_guesses} wrong guesses remaining."
+  puts game.guessed_word
+
+  print 'Please enter a letter to guess: '
+  user_guess = gets.chomp.downcase
+
+  puts 'You have already guessed that letter.' unless game.guess_letter(user_guess)
+  game.check_for_win
+end
+
+game.check_for_win ? puts("Congrats! You guessed the word #{game.word} with #{game.max_wrong_guesses} wrong guesses remaining.") : puts("You suck! You were unable to guess the word #{game.word}.")

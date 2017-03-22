@@ -5,7 +5,7 @@ describe WordGame do
 
   describe '::new' do
     it 'correctly initializes @word' do
-      expect(word_game.instance_variable_get(:@word)).to eq 'sloths'
+      expect(word_game.word).to eq 'sloths'
     end
 
     it 'correctly initializes @max_wrong_guesses' do
@@ -21,7 +21,7 @@ describe WordGame do
     end
 
     it 'correctly initializes @game_over' do
-      expect(word_game.game_over).to eq false
+      expect(word_game.instance_variable_get(:@game_over)).to eq false
     end
   end
 
@@ -85,7 +85,7 @@ describe WordGame do
     it 'sets @game_over to true if user has won' do
       word_game.instance_variable_set(:@guessed_word, 'sloths')
       word_game.check_for_win
-      expect(word_game.game_over).to eq true
+      expect(word_game.instance_variable_get(:@game_over)).to eq true
     end
 
     it 'returns false if user has not won yet' do
@@ -104,7 +104,7 @@ describe WordGame do
       expect(word_game.game_is_over?).to eq true
     end
 
-    it 'returns true when game is supposed to continue' do
+    it 'returns false when game is supposed to continue' do
       expect(word_game.game_is_over?).to eq false
     end
   end
