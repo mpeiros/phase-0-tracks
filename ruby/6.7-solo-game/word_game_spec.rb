@@ -54,6 +54,13 @@ describe WordGame do
         word_game.guess_letter('x')
         expect(word_game.max_wrong_guesses).to eq 1
       end
+
+      it 'adds letter to the array of guessed letters' do
+        word_game.guess_letter('q')
+        word_game.guess_letter('r')
+        word_game.guess_letter('a')
+        expect(word_game.instance_variable_get(:@guessed_letters)).to eq ['q', 'r', 'a']
+      end
     end
 
     context 'guessing a letter already in the guessed letters array' do
