@@ -9,7 +9,7 @@ describe WordGame do
     end
 
     it 'correctly initializes @max_wrong_guesses' do
-      expect(word_game.instance_variable_get(:@max_wrong_guesses)).to eq 3
+      expect(word_game.max_wrong_guesses).to eq 3
     end
 
     it 'correctly initializes @guessed_letters' do
@@ -52,7 +52,7 @@ describe WordGame do
       it 'decrements the maximum wrong guess count' do
         word_game.guess_letter('z')
         word_game.guess_letter('x')
-        expect(word_game.instance_variable_get(:@max_wrong_guesses)).to eq 1
+        expect(word_game.max_wrong_guesses).to eq 1
       end
     end
 

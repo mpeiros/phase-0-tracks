@@ -9,7 +9,10 @@
 #   + check if letter is included in the word
 #     * if yes - add letter to string representing the state of the word
 #     * if no - decrement the max wrong guess count
-# - Allow read access to string representing the state of the word to guess and boolean representing state of the game
+# - Allow read access
+#   + string representing the state of the word to guess
+#   + boolean representing state of the game
+#   + maximum wrong guess count
 # - Determine game over message to send to user
 #   + if user has won - send congratulatory message including how many wrong guesses they used up
 #   + if user has lost - send taunting message revealing the word that they were unable to guess 
@@ -17,8 +20,7 @@
 # game class
 
 class WordGame
-  attr_reader :game_over
-  attr_reader :guessed_word
+  attr_reader :guessed_word, :game_over, :max_wrong_guesses
 
   def initialize(word)
     @word = word
