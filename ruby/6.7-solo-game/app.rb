@@ -11,7 +11,7 @@ game.handle_spaces
 
 until game.game_is_over?
   puts '_' * 50
-  puts "The status of the word you must guess is listed below. You have #{game.max_wrong_guesses} wrong guesses remaining."
+  puts "The status of the word to guess is listed below. You have #{game.max_wrong_guesses} wrong guesses remaining."
   puts game.guessed_word
 
   print 'Please enter a letter to guess: '
@@ -31,7 +31,7 @@ until game.game_is_over?
 end
 
 if user_win
-  puts("Congrats! You guessed the word #{game.word} with #{game.max_wrong_guesses} wrong guesses remaining.") 
+  puts "Congrats! You guessed the word #{game.word} with #{game.max_wrong_guesses} wrong guesses remaining."
 else
-  puts("You suck! You were unable to guess the word #{game.word}.")
+  puts "You suck! You were unable to guess the word #{game.word}."
 end

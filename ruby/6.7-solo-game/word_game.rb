@@ -26,7 +26,7 @@ class WordGame
 
   def initialize(word)
     @word = word
-    @max_wrong_guesses = word.length - 1
+    @max_wrong_guesses = word.length / 2
     @guessed_letters = []
     @guessed_word = '-' * word.length
     @game_over = false
