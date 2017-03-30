@@ -38,6 +38,18 @@ function findMatch(firstObj, secondObj) {
   return false;
 }
 
+// Release 2: Generate Random Test Data
+// function takes an integer for length and returns an array of strings of the given length
+// declare an empty array that will accumulate the strings generated later in the function
+// declare a loop that will run a number of times equal to the length passed in
+// within the loop, declare an empty string that will accumulate characters generated later in the loop
+// within the loop, generate a random number between 1 and 10 inclusive
+// within the loop, declare a nested loop that will run a number of times equal to the random number generated
+// within the nested loop, generate a random character and add it to the accumulator string
+// back in the outer loop, add the accumulator string into the accumulator array
+// back in the function, return the accumulator array
+
+
 
 // Test code for Release 0
 console.log('Tests for Release 0');
@@ -51,7 +63,6 @@ var evenMoreTestWords = ['computer', 'ruby', 'javascript', 'html', 'css', 'dev b
 console.log(findLongestWord(evenMoreTestWords));
 
 // Test code for Release 1
-
 console.log('\nTests for Release 1')
 var firstTestObj = { name: 'Steven', age: 54 };
 var secondTestObj = { name: 'Tamir', age: 54 };
