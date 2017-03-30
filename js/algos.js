@@ -17,6 +17,19 @@ function findLongestWord(words) {
   return longestWord;
 }
 
+// Release 1: Find a Key-Value Match
+// function takes two objects and returns true if the objects share at least one key-value pair (returns false otherwise)
+// iterate through the first object using a for in loop
+// for each key in the first object, check if the second object has the same key
+// if keys match, check if the values match
+// if the values match, then return true
+// end function by returning false, which will get executed if no matches are found
+
+
+
+
+// Test code for Release 0
+console.log('Tests for Release 0');
 var testWords = ['long phrase', 'longest phrase', 'longer phrase'];
 console.log(findLongestWord(testWords));
 
