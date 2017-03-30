@@ -49,7 +49,23 @@ function findMatch(firstObj, secondObj) {
 // back in the outer loop, add the accumulator string into the accumulator array
 // back in the function, return the accumulator array
 
+function generateData(length) {
+  var stringArray = [];
 
+  for (var i = 0; i < length; i++) {
+    randomWord = '';
+    randomNum = Math.floor(Math.random() * 10) + 1;
+
+    for (var j = 0; j < randomNum; j++) {
+      // generates a number between 97 and 122, which corresponds to the ASCII character codes for a-z
+      randomWord += String.fromCharCode(Math.floor(Math.random() * (26)) + 97);
+    }
+
+    stringArray.push(randomWord);
+  }
+
+  return stringArray;
+}
 
 // Test code for Release 0
 console.log('Tests for Release 0');
@@ -96,3 +112,12 @@ var sixthTestObj = {
 };
 
 console.log(findMatch(fifthTestObj, sixthTestObj));
+
+// Test code for Release 2
+console.log('\nTests for Release 2')
+
+for (var i = 0; i < 10; i++) {
+  testArray = generateData(5);
+  console.log(testArray);
+  console.log('Longest word = ' + findLongestWord(testArray));
+}
