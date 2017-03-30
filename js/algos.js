@@ -6,5 +6,22 @@
 // after looping through the array, return longestWord
 
 function findLongestWord(words) {
-  
+  var longestWord = words[0];
+
+  for (var i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+
+  return longestWord;
 }
+
+var testWords = ['long phrase', 'longest phrase', 'longer phrase'];
+console.log(findLongestWord(testWords));
+
+var moreTestWords = ['elephant', 'dog', 'cat', 'moose', 'sloth'];
+console.log(findLongestWord(moreTestWords));
+
+var evenMoreTestWords = ['computer', 'ruby', 'javascript', 'html', 'css', 'dev bootcamp'];
+console.log(findLongestWord(evenMoreTestWords));
