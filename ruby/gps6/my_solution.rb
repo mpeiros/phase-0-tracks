@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge by myself (pair did not show up).
+# I spent 1 hour on this challenge.
 
 # EXPLANATION OF require_relative
 # require_relative is for other files in the same directory that you've written, only for files
@@ -84,3 +84,8 @@ STATE_DATA.each { |state, population_hash| VirusPredictor.new(state, population_
 
 #=======================================================================
 # Reflection Section
+# 1. One hash syntax uses Strings for keys and uses the hash rocket syntax ("key" => value). The other syntax uses symbols and keys use the format key: value. Each syntax has a different way of accessing values - String syntax is hash["key"] and symbol syntax is hash[:key].
+# 2. Require_relative imports the file you provide as the argument. You can think of it like having the code from that file sitting at the top of your current file. Require is used more for third party libraries, such as external gems and modules, whereas require_relative is used more for files that you've created inside your project directory.
+# 3. You can iterate through a hash with Hash#each which iterates through each key-value pair. You could also use Hash#each_key to only iterate through the keys or Hash#each_value to only iterate through the values.
+# 4. What stood out to me about the variables was that the program was passing in the instance variables to the two private methods, which is not really necessary since instance variables are available throughout the class (i.e., scoped to the whole class). Therefore, there was no need to pass the instance variables between the methods.
+# 5. I think the concept that I solidified most was getting a better understanding of case statements (when then syntax, comparing to a range as opposed to using >=, etc.).
