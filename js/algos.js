@@ -25,7 +25,18 @@ function findLongestWord(words) {
 // if the values match, then return true
 // end function by returning false, which will get executed if no matches are found
 
+function findMatch(firstObj, secondObj) {
+  
+  for (var firstObjKey in firstObj) {
+    if (secondObj.hasOwnProperty(firstObjKey)) {
+      if (firstObj[firstObjKey] === secondObj[firstObjKey]) {
+        return true;
+      }
+    }
+  }
 
+  return false;
+}
 
 
 // Test code for Release 0
@@ -38,3 +49,39 @@ console.log(findLongestWord(moreTestWords));
 
 var evenMoreTestWords = ['computer', 'ruby', 'javascript', 'html', 'css', 'dev bootcamp'];
 console.log(findLongestWord(evenMoreTestWords));
+
+// Test code for Release 1
+
+console.log('\nTests for Release 1')
+var firstTestObj = { name: 'Steven', age: 54 };
+var secondTestObj = { name: 'Tamir', age: 54 };
+console.log(findMatch(firstTestObj, secondTestObj));
+
+var thirdTestObj = {
+  name: 'Mark',
+  age: 99,
+  location: 'San Francisco'
+};
+
+var fourthTestObj = {
+  name: 'Mark Smith',
+  age: 75,
+  'location': 'San Francisco'
+};
+
+console.log(findMatch(thirdTestObj, fourthTestObj));
+
+var fifthTestObj = {
+  bedrooms: 5,
+  bathrooms: 3,
+  address: '123 Fake Street'
+};
+
+var sixthTestObj = {
+  make: 'Toyota',
+  model: 'Prius',
+  year: 2009,
+  color: 'gray'
+};
+
+console.log(findMatch(fifthTestObj, sixthTestObj));
