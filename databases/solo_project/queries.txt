@@ -39,3 +39,53 @@ Lizzie      Carole
 Sterling    Malory  
 
 __5. DELETE FROM kids WHERE id=3;__
+
+# Release 3: Research on Your Own
+
+__SELECT kids.name AS kid, kids.good_kid, mothers.name AS mom, mothers.good_mom FROM kids INNER JOIN mothers ON kids.good_kid = mothers.good_mom;__
+
+kid         good_kid    mom         good_mom  
+----------  ----------  ----------  ----------
+Bart        false       Malory      false     
+Lisa        true        Carole      true      
+Lisa        true        Marge       true      
+Max         true        Carole      true      
+Max         true        Marge       true      
+Jake        true        Carole      true      
+Jake        true        Marge       true      
+Lizzie      false       Malory      false     
+Sterling    false       Malory      false       
+
+__SELECT kids.name, kids.age, mothers.name, mothers.age FROM kids CROSS JOIN mothers;__
+
+name        age         name        age       
+----------  ----------  ----------  ----------
+Bart        13          Marge       43        
+Bart        13          Carole      59        
+Bart        13          Malory      65        
+Lisa        10          Marge       43        
+Lisa        10          Carole      59        
+Lisa        10          Malory      65        
+Max         29          Marge       43        
+Max         29          Carole      59        
+Max         29          Malory      65        
+Jake        27          Marge       43        
+Jake        27          Carole      59        
+Jake        27          Malory      65        
+Lizzie      24          Marge       43        
+Lizzie      24          Carole      59        
+Lizzie      24          Malory      65        
+Sterling    35          Marge       43        
+Sterling    35          Carole      59        
+Sterling    35          Malory      65    
+
+__SELECT kids.name, kids.age, mothers.name FROM kids LEFT JOIN mothers ON kids.age = mothers.age;__
+
+name        age         name      
+----------  ----------  ----------
+Bart        13                    
+Lisa        10                    
+Max         29                    
+Jake        27                    
+Lizzie      24                    
+Sterling    35                   
