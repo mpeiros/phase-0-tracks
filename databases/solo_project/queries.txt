@@ -1,0 +1,41 @@
+# Release 2: Execute SQL Queries
+
+__1. SELECT * FROM kids;__
+
+id          name        age         gender      good_kid    mother_id 
+----------  ----------  ----------  ----------  ----------  ----------
+1           Bart        13          male        false       1         
+2           Lisa        10          female      true        1         
+3           Maggie      2           female      true        1         
+4           Max         29          male        true        2         
+5           Jake        27          male        true        2         
+6           Lizzie      24          female      true        2         
+7           Sterling    35          male        false       3 
+
+__2. UPDATE kids SET good_kid='false' WHERE id=6;__
+
+__3. SELECT * FROM kids, mothers WHERE kids.mother_id = mothers.id;__
+
+id          name        age         gender      good_kid    mother_id   id          name        age         good_mom  
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           Bart        13          male        false       1           1           Marge       43          true      
+2           Lisa        10          female      true        1           1           Marge       43          true      
+3           Maggie      2           female      true        1           1           Marge       43          true      
+4           Max         29          male        true        2           2           Carole      59          true      
+5           Jake        27          male        true        2           2           Carole      59          true      
+6           Lizzie      24          female      false       2           2           Carole      59          true      
+7           Sterling    35          male        false       3           3           Malory      65          false
+
+__4. SELECT kids.name, mothers.name FROM kids JOIN mothers ON kids.mother_id = mothers.id;__
+
+name        name      
+----------  ----------
+Bart        Marge     
+Lisa        Marge     
+Maggie      Marge     
+Max         Carole    
+Jake        Carole    
+Lizzie      Carole    
+Sterling    Malory  
+
+__5. DELETE FROM kids WHERE id=3;__
