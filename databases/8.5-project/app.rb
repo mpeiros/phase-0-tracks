@@ -1,6 +1,5 @@
 require 'sqlite3'
-require 'httparty'
-require 'json'
+require_relative 'weather_data'
 
 db = SQLite3::Database.new('test.db')
 
@@ -14,11 +13,10 @@ SQL
 
 db.execute(create_table_cmd)
 
-response = HTTParty.get('http://api.stackexchange.com/2.2/questions?site=stackoverflow', format: :plain)
+print 'Enter a city: '
+city = gets.chomp
 
-# puts response.body, response.code, response.message, response.headers.inspect
+weather_data = WeatherData.new(city)
+weather_data.get_weather
 
-puts response.code, response.message 
-
-my_hash = JSON.parse(response, symbolize_names: true)
-puts my_hash[:items][0][:tags]
+p weather_data.city, weather_data.weather_description, weather_data.temperature, weather_data.humidity, weather_data.wind_speed
