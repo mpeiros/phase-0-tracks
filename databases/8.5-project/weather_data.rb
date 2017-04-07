@@ -28,6 +28,14 @@ class WeatherData
     end
   end
 
+  def print_weather_info
+    puts "Current weather for #{@city}:"
+    puts "Description = #{@weather_description}"
+    puts "Temperature = #{@temperature} degrees Fahrenheit"
+    puts "Humidity = #{@humidity}%"
+    puts "Wind speed = #{@wind_speed} miles per hour"
+  end
+
   private
 
     def update_instance_vars(response_hash)

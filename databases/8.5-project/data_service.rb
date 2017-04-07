@@ -12,13 +12,20 @@ class DataService
       );
     SQL
     DATABASE.execute(create_table_cmd)
+    DATABASE.results_as_hash = true
   end
 
   def select_all
-    DATABASE.execute('SELECT  * FROM cities')
+    cities = DATABASE.execute('SELECT  * FROM cities')
   end
 
   def add_city(city)
     DATABASE.execute('INSERT INTO cities (city) VALUES (?)', [city])
+  end
+
+  def print_results(query_results)
+    query_results.each do |result|
+      puts "#{result['id']}: #{result['city']}"
+    end
   end
 end
