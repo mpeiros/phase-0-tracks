@@ -6,8 +6,6 @@ class WeatherData
   WEATHER_API_URL_END = '&units=imperial&appid=3d6f679b377e4b4c9ded52dc4d1f046f'
   private_constant :WEATHER_API_URL_START, :WEATHER_API_URL_END
 
-  attr_reader :city, :weather_description, :temperature, :humidity, :wind_speed
-
   def initialize(city)
     @city = city
     @weather_description = ''
