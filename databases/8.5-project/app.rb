@@ -8,14 +8,19 @@ all = ds.select_all
 ds.print_results(all)
 
 print 'Enter a city: '
-city = gets.chomp.strip
+id = gets.chomp.to_i
+ds.delete_city(id)
 
-ds.add_city(city)
+# id = gets.chomp.to_i
+# city = ds.get_city(id)
 
-weather_data = WeatherData.new(city)
+# city = gets.chomp.strip
+# ds.add_city(city)
 
-if weather_data.get_weather
-  weather_data.print_weather_info
-else
-  puts 'error - not a valid city'
-end
+# weather_data = WeatherData.new(city)
+
+# if weather_data.get_weather
+#   weather_data.print_weather_info
+# else
+#   puts 'error - not a valid city'
+# end

@@ -16,11 +16,20 @@ class DataService
   end
 
   def select_all
-    cities = DATABASE.execute('SELECT  * FROM cities')
+    DATABASE.execute('SELECT * FROM cities')
   end
 
   def add_city(city)
-    DATABASE.execute('INSERT INTO cities (city) VALUES (?)', [city])
+    DATABASE.execute('INSERT INTO cities (city) VALUES (?)', city)
+  end
+
+  def get_city(id)
+    result = DATABASE.execute('SELECT city FROM cities WHERE id=?', id)
+    result[0]['city']
+  end
+
+  def delete_city(id)
+    DATABASE.execute('DELETE FROM cities WHERE id=?', id)
   end
 
   def print_results(query_results)
