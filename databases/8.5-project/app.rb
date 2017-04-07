@@ -1,24 +1,14 @@
-require 'sqlite3'
+require_relative 'data_service'
 require_relative 'weather_data'
 
-db = SQLite3::Database.new('weather_app.db')
-db.results_as_hash = true
+ds = DataService.new
 
-create_table_cmd = <<-SQL
-  CREATE TABLE IF NOT EXISTS cities (
-    id INTEGER PRIMARY KEY,
-    city VARCHAR(255)
-  );
-SQL
-
-db.execute(create_table_cmd)
-
-puts db.execute('SELECT * FROM cities')
+p ds.select_all
 
 print 'Enter a city: '
 city = gets.chomp.strip
 
-db.execute('INSERT INTO cities (city) VALUES (?)', [city])
+ds.add_city(city)
 
 weather_data = WeatherData.new(city)
 
