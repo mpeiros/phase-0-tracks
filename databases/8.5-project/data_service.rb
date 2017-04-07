@@ -28,6 +28,10 @@ class DataService
     result[0]['city']
   end
 
+  def update_city(id, new_value)
+    DATABASE.execute('UPDATE cities SET city=? WHERE id=?', [new_value, id])
+  end
+
   def delete_city(id)
     DATABASE.execute('DELETE FROM cities WHERE id=?', id)
   end

@@ -7,9 +7,15 @@ puts 'Here is your list of favorite cities:'
 all = ds.select_all
 ds.print_results(all)
 
-print 'Enter a city: '
+print 'Enter id: '
 id = gets.chomp.to_i
-ds.delete_city(id)
+print 'Enter city name: '
+city_name = gets.chomp
+ds.update_city(id, city_name)
+
+# print 'Enter a city: '
+# id = gets.chomp.to_i
+# ds.delete_city(id)
 
 # id = gets.chomp.to_i
 # city = ds.get_city(id)
