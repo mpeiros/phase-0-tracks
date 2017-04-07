@@ -27,7 +27,7 @@ class WeatherData
   end
 
   def print_weather_info
-    puts "Current weather for #{@city}:"
+    puts "\nCurrent weather for #{@city}:"
     puts "Description = #{@weather_description}"
     puts "Temperature = #{@temperature} degrees Fahrenheit"
     puts "Humidity = #{@humidity}%"

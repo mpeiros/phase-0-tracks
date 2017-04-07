@@ -19,6 +19,11 @@ class DataService
     DATABASE.execute('SELECT * FROM cities')
   end
 
+  def current_count
+    result = DATABASE.execute('SELECT COUNT(*) FROM cities')
+    result[0]['COUNT(*)']
+  end
+
   def add_city(city)
     DATABASE.execute('INSERT INTO cities (city) VALUES (?)', city)
   end

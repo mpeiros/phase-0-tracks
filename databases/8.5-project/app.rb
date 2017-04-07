@@ -25,6 +25,8 @@ loop do
   user_choice = gets.chomp
   break if user_choice == 'q'
 
+  db_range = (1..ds.current_count)
+
   case user_choice.to_i
   when 1
     print 'Enter the city you wish to add: '
@@ -33,19 +35,27 @@ loop do
   when 2
     print 'Enter the number of the city you wish to get weather information for: '
     id = gets.chomp.to_i
-    city = ds.get_city(id)
-    weather_data = WeatherData.new(city)
-    weather_data.get_weather ? weather_data.print_weather_info : puts('Error: Not a valid city')
+    if db_range.include?(id)
+      city = ds.get_city(id)
+      weather_data = WeatherData.new(city)
+      weather_data.get_weather ? weather_data.print_weather_info : puts('Error: Not a valid city')
+    else
+      puts 'No database record matching that number!'
+    end
   when 3
     print 'Enter the number of the city you wish to update: '
     id = gets.chomp.to_i
-    print 'Enter the updated name for this city: '
-    new_name = gets.chomp
-    ds.update_city(id, new_name)
+    if db_range.include?(id)
+      print 'Enter the updated name for this city: '
+      new_name = gets.chomp
+      ds.update_city(id, new_name)
+    else
+      puts 'No database record matching that number!'
+    end
   when 4
     print 'Enter the number of the city you wish to delete: '
     id = gets.chomp.to_i
-    ds.delete_city(id)
+    db_range.include?(id) ? ds.delete_city(id) : puts('No database record matching that number!')
   else
     puts 'Please enter a valid option!'
   end
