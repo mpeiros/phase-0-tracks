@@ -18,4 +18,3 @@ _What is a cookie (the technical kind, not the delicious kind)? How does it rela
     + The browser may store the cookie and include it in the next request to the same server
 - Cookies relate to HTTP requests because they can be part of an HTTP request
     + Their inclusion in requests allows users to stay logged in and save preferences (amongst other things)
-
