@@ -1,30 +1,29 @@
 console.log("The script is running!");
 
-// function addPinkBorder(event) {
-//   console.log("click happened! here's the click event:");
-//   console.log(event);
-//   event.target.style.border = "2px solid pink";
-// }
-
-// var photo = document.getElementById("lizard-photo");
-// photo.addEventListener("click", addPinkBorder);
+var photo = document.getElementById("lizard-photo");
 
 function addRedBorder(event) {
   event.target.style.border = '2px solid red';
 }
 
 function hide() {
-  var photo = document.getElementById("lizard-photo");
   photo.hidden = true;
 }
 
 function reveal() {
-  var photo = document.getElementById("lizard-photo");
   photo.hidden = false;
 }
 
 function addBlueBackground(event) {
   event.target.style.background = 'blue';
+}
+
+function resetBackground(event) {
+  event.target.style.background = 'white';
+}
+
+function addPinkBorder(event) {
+  event.target.style.border = '5px solid pink';
 }
 
 var div = document.getElementById('about-my-pet');
@@ -38,3 +37,7 @@ revealButton.addEventListener('click', reveal);
 
 var para = document.getElementById('mouse-over');
 para.addEventListener('mouseover', addBlueBackground);
+para.addEventListener('mouseleave', resetBackground);
+
+var ul = document.getElementById('list');
+ul.addEventListener('dblclick', addPinkBorder);
