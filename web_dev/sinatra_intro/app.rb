@@ -65,3 +65,15 @@ get '/:num_1/:num_2' do
   result = num_1 + num_2
   result.to_s
 end
+
+get '/students/filter/:age' do
+  students = db.execute("SELECT * FROM students WHERE age>?", params[:age])
+  response = ""
+  students.each do |student|
+    response << "ID: #{student['id']}<br>"
+    response << "Name: #{student['name']}<br>"
+    response << "Age: #{student['age']}<br>"
+    response << "Campus: #{student['campus']}<br><br>"
+  end
+  response
+end
