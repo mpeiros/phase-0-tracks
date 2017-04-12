@@ -44,3 +44,13 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+# Release 0
+get '/contact' do
+  num = params[:num]
+  street = params[:street]
+  "Address = #{num} #{street}"  
+end
+
+# http://localhost:9393/contact?num=1547&street=Lombard%20Street => Address = 1547 Lombard Street
+
