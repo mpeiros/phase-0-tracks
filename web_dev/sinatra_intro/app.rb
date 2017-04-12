@@ -49,3 +49,12 @@ end
 get '/contact' do
   "1547 Lombard Street, San Francisco"
 end
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
+end
