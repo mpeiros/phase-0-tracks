@@ -19,7 +19,7 @@ end
 
 get '/students/:id' do
   id = params[:id]
-  @student = db.execute("SELECT * FROM students WHERE id=?",id)
+  @student = db.execute("SELECT * FROM students WHERE id=?", id)
   erb :student_page
 end
 
